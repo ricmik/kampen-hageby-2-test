@@ -6,7 +6,7 @@
     {% for document in documents %}
       {% if document.title and document.file %}
       <li class="document-item">
-        <a href="{{ document.file | escape }}">{{ document.title | escape }}</a>
+        <a href="{{ document.file | escape }}" target="_blank" rel="noopener noreferrer">{{ document.title | escape }} <span class="visually-hidden">(åpnes i ny fane)</span></a>
         {% if document.summary %}<p>{{ document.summary | escape }}</p>{% endif %}
         <small>
           {% if document.category %}{{ document.category | escape }}{% endif %}

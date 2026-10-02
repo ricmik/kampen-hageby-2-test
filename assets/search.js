@@ -38,6 +38,11 @@
     link.className = className;
     link.href = item.url;
     link.textContent = item.title;
+    if (item.type === 'Dokument') {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.setAttribute('aria-label', item.title + ' (åpnes i ny fane)');
+    }
     if (className === 'search-suggestion') {
       link.setAttribute('role', 'option');
       link.setAttribute('aria-selected', 'false');
