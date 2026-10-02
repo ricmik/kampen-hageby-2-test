@@ -1,0 +1,146 @@
+---
+layout: default
+title: Søk
+permalink: /search.html
+---
+<section class="page-hero">
+  <div class="container">
+    <div class="page-intro">
+      <p class="eyebrow">Søk</p>
+      <h1>Søk i sammeiet</h1>
+      <p class="lead">Finn nyheter, retningslinjer, dokumenter og praktisk informasjon om Kampen Hageby 2.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <form class="search-form" id="search-form" action="{{ '/search.html' | relative_url }}" method="get">
+      <label class="visually-hidden" for="search-query">Søk etter innhold</label>
+      <input id="search-query" name="q" type="search" placeholder="Søk etter nyhet, dokument, regler eller emne..." autocomplete="off">
+      <button class="button" type="submit">Søk</button>
+    </form>
+
+    <div id="search-status" class="search-status" aria-live="polite">Laster søkeindeks...</div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const searchForm = document.getElementById('search-form');
+    const queryInput = document.getElementById('search-query');
+    const resultsContainer = document.getElementById('search-results');
+    const statusElement = document.getElementById('search-status');
+    const searchUrl = '{{ "/search.json" | relative_url }}';
+    let index = [];
+
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function escapeRegExp(value) {
+      return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function highlightMatch(text, query) {
+      const safeText = escapeHtml(text || '');
+      if (!query) return safeText;
+      const regex = new RegExp('(' + escapeRegExp(query) + ')', 'gi');
+      return safeText.replace(regex, '<mark>$1</mark>');
+    }
+
+    function normalize(text) {
+      return String(text || '').toLowerCase().replace(/\s+/g, ' ').trim();
+    }
+
+    function getSnippet(text, query) {
+      const cleanText = String(text || '').replace(/\s+/g, ' ').trim();
+      if (!cleanText) return '';
+      const lower = cleanText.toLowerCase();
+      const index = lower.indexOf(query.toLowerCase());
+      if (index === -1) {
+        return cleanText.length > 180 ? cleanText.slice(0, 177) + '...' : cleanText;
+      }
+      const start = Math.max(0, index - 70);
+      const end = Math.min(cleanText.length, index + query.length + 110);
+      return (start > 0 ? '...' : '') + cleanText.slice(start, end) + (end < cleanText.length ? '...' : '');
+    }
+
+    function renderMatches(matches, query) {
+      if (!matches.length) {
+        statusElement.textContent = 'Fant ingen treff for søket «' + query + '». Prøv et annet ord.';
+        resultsContainer.innerHTML = '<div class="search-empty">Ingen sider eller nyheter matcher søket ditt. Prøv å søke etter «regler», «dokumenter», «forening» eller «vedlikehold».</div>';
+        return;
+      }
+
+      statusElement.textContent = 'Fant ' + matches.length + ' treff for søket «' + query + '». ';
+      resultsContainer.innerHTML = matches.map(function (item) {
+        const summary = highlightMatch(getSnippet(item.summary || item.content, query), query);
+        const dateText = item.date ? new Date(item.date + 'T12:00:00').toLocaleDateString('nb-NO', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+        return '<a class="search-result" href="' + item.url + '">' +
+          '<span class="search-result-type">' + escapeHtml(item.type || 'Side') + '</span>' +
+          '<strong>' + highlightMatch(item.title, query) + '</strong>' +
+          (summary ? '<p>' + summary + '</p>' : '') +
+          (item.category ? '<small>' + escapeHtml(item.category) + (dateText ? ' · ' + escapeHtml(dateText) : '') + '</small>' : (dateText ? '<small>' + escapeHtml(dateText) + '</small>' : '')) +
+          '</a>';
+      }).join('');
+    }
+
+    function runSearch(rawQuery) {
+      const query = rawQuery.trim();
+      queryInput.value = query;
+
+      if (!query) {
+        statusElement.textContent = 'Skriv inn minst ett søkeord.';
+        resultsContainer.innerHTML = '';
+        return;
+      }
+
+      const normalizedQuery = normalize(query);
+      const matches = index.filter(function (item) {
+        const haystack = normalize([item.title, item.summary, item.content, item.category, item.type].join(' '));
+        return haystack.includes(normalizedQuery);
+      });
+
+      renderMatches(matches, query);
+    }
+
+    async function loadIndex() {
+      try {
+        const response = await fetch(searchUrl, { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error('Kunne ikke laste søkeindeks.');
+        }
+        index = await response.json();
+
+        const params = new URLSearchParams(window.location.search);
+        const initialQuery = (params.get('q') || '').trim();
+        runSearch(initialQuery);
+      } catch (error) {
+        statusElement.textContent = 'Søketjenesten kunne ikke laste. Prøv igjen senere.';
+        resultsContainer.innerHTML = '<div class="search-empty">Det oppstod en feil under lasting av søkeindeksen.</div>';
+      }
+    }
+
+    searchForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const nextQuery = queryInput.value.trim();
+      const url = new URL(window.location.href);
+      if (nextQuery) {
+        url.searchParams.set('q', nextQuery);
+      } else {
+        url.searchParams.delete('q');
+      }
+      history.replaceState({}, '', url);
+      runSearch(nextQuery);
+    });
+
+    loadIndex();
+  })();
+</script>
