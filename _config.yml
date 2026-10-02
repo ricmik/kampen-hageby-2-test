@@ -3,7 +3,7 @@ description: Nyheter, retningslinjer, dokumenter og nyttige lenker for beboere.
 lang: nb
 timezone: Europe/Oslo
 # Prosjektside på GitHub Pages: bytt til "" ved eget domene eller brukernavn.github.io.
-baseurl: "/test-github-pages"
+baseurl: "/kampen-hageby-2-test"
 permalink: /nyhet-:title.html
 defaults:
   - scope:
