@@ -211,6 +211,17 @@ h3 { letter-spacing: -.02em; }
 .prose blockquote { margin: 0 0 38px; border-left: 3px solid var(--rust); background: #f4eee4; padding: 22px 26px; border-radius: 0 5px 5px 0; }
 .prose blockquote p { margin: 0; font-size: 14px; line-height: 1.7; }
 .prose img { height: auto; border-radius: 5px; }
+.prose table { width: 100%; border-collapse: collapse; margin: 22px 0 30px; font-size: 14px; }
+.prose th, .prose td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+.prose th { color: var(--pine); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.prose tr:nth-child(even) { background: rgba(229, 236, 223, .38); }
+.color-swatch { display: inline-block; width: 38px; height: 24px; border: 1px solid rgba(32, 51, 43, .2); border-radius: 4px; vertical-align: middle; }
+.color-swatch-red { background: #984d3e; }
+.color-swatch-yellow { background: #cdb34d; }
+.color-swatch-green { background: #4d583f; }
+.color-swatch-warm-white { background: #f2ead8; }
+.color-swatch-brown { background: #4a382e; }
+.color-swatch-white { background: #fff; }
 .post-body { max-width: 750px; }
 .back-link { margin-top: 38px; }
 

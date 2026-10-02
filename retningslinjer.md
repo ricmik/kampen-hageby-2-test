@@ -74,18 +74,16 @@ Utelamper skal være hvite. Det anbefales en lampe som ligner typene vist i retn
 
 ### Farger og gjerder
 
-Fargene ble harmonisert med fargene brukt i KH1 ved maling i 2022/23:
+Fargene ble harmonisert med fargene brukt i KH1 ved maling i 2022/23. Prøvene nedenfor er omtrentlige skjermillustrasjoner basert på NCS-kodenes fargetone og lyshet, ikke offisielle sRGB-konverteringer. Skjerminnstillinger påvirker også gjengivelsen. Bruk oppgitt NCS-kode eller fysisk fargeprøve ved bestilling og maling.
 
-
-| Bygningsdel/farge | Farge |
-| -------------------------- | ----------------------------------------------- |
-| Rød fasade | NCS S5038-Y83R |
-| Gul fasade | NCS S2455-Y16R |
-| Grønn fasade | NCS S7310-G57Y |
-| Hvit fasade | Lillesandhvit, Jotun Drygolin eller tilsvarende |
-| Rekkverk ved inngangsparti | Beises mørkebrunt |
-| Gjerder | Males hvite |
-
+| Bygningsdel/farge | Fargeprøve | Farge |
+| --- | --- | --- |
+| Rød fasade | <span class="color-swatch color-swatch-red" role="img" aria-label="Illustrerende rød fargeprøve"></span> | NCS S5038-Y83R |
+| Gul fasade | <span class="color-swatch color-swatch-yellow" role="img" aria-label="Illustrerende gul fargeprøve"></span> | NCS S2455-Y16R |
+| Grønn fasade | <span class="color-swatch color-swatch-green" role="img" aria-label="Illustrerende grønn fargeprøve"></span> | NCS S7310-G57Y |
+| Hvit fasade | <span class="color-swatch color-swatch-warm-white" role="img" aria-label="Illustrerende varm hvit fargeprøve"></span> | Lillesandhvit, Jotun Drygolin eller tilsvarende |
+| Rekkverk ved inngangsparti | <span class="color-swatch color-swatch-brown" role="img" aria-label="Illustrerende mørkebrun fargeprøve"></span> | Beises mørkebrunt |
+| Gjerder | <span class="color-swatch color-swatch-white" role="img" aria-label="Illustrerende hvit fargeprøve"></span> | Males hvite |
 
 ## Branndør i garasjeanlegget
 
