@@ -10,10 +10,11 @@
       <a href="{{ '/dokumenter.html' | relative_url }}"{% if page.url == '/dokumenter.html' %} aria-current="page"{% endif %}>Dokumenter fra sameiet</a>
       <a href="{{ '/leverandorer.html' | relative_url }}"{% if page.url == '/leverandorer.html' %} aria-current="page"{% endif %}>Leverandører og tjenester</a>
     </nav>
-    <form class="header-search" action="{{ '/search.html' | relative_url }}" method="get">
+    <form class="header-search" id="header-search-form" action="{{ '/search.html' | relative_url }}" method="get">
       <label class="visually-hidden" for="site-search-input">Søk på nettsiden</label>
-      <input id="site-search-input" type="search" name="q" placeholder="Søk..." aria-label="Søk på nettsiden">
+      <input id="site-search-input" type="search" name="q" placeholder="Søk..." aria-label="Søk på nettsiden" aria-controls="header-search-results" aria-expanded="false" aria-autocomplete="list" role="combobox" autocomplete="off">
       <button type="submit" aria-label="Søk">Søk</button>
+      <div class="search-suggestions" id="header-search-results" role="listbox" aria-label="Søkeresultater" hidden></div>
     </form>
     <a class="header-action" href="{{ '/#siste-nytt' | relative_url }}">Siste nytt <span aria-hidden="true">↗</span></a>
     <details class="mobile-nav">

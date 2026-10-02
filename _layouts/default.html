@@ -13,5 +13,6 @@
   {% include header.html %}
   {{ content }}
   {% include footer.html %}
+  <script src="{{ '/assets/search.js' | relative_url }}" data-index-url="{{ '/search.json' | relative_url }}" defer></script>
 </body>
 </html>

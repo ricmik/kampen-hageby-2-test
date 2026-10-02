@@ -43,6 +43,7 @@ The repository is intentionally content-first: most changes are Markdown edits, 
 - For news items, use the `_posts/` front matter pattern already used by existing posts: `title`, `date`, `category`, `summary`, and Markdown body content.
 - For document links, keep paths relative to the site root and use the public URL format described in the README, for example linking PDF files stored under `filer/`.
 - When changing site behavior or base URLs, verify the `baseurl` setting in `_config.yml` and the corresponding `output` paths in `.pages.yml` remain consistent for the target deployment.
+- Use only Jekyll-native, auto-generated components for any site feature that depends on content updates. Search, navigation, and similar features must be generated from the site content during the Jekyll build or by static content files already in the repository; do not add custom scripts or maintenance tasks that require humans to keep a separate index, database, or script up to date.
 
 ## Content and publishing notes
 
