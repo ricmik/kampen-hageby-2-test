@@ -2,12 +2,12 @@ media:
   - name: bilder
     label: Bilder
     input: assets/uploads
-    output: /test-github-pages/assets/uploads
+    output: /kampen-hageby-2-test/assets/uploads
     categories: [image]
   - name: dokumentfiler
     label: Dokumenter (PDF)
     input: filer
-    output: /test-github-pages/filer
+    output: /kampen-hageby-2-test/filer
     extensions: [pdf]
 content:
   - name: nyheter
