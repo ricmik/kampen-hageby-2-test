@@ -2,7 +2,6 @@
 title: Retningslinjer for bebyggelsen
 lead: Veiledning for endringer og utskiftninger som påvirker bebyggelsens utseende.
 ---
-
 Retningslinjene skal bidra til en felles forståelse av bebyggelsens utforming og til konsekvente beslutninger over tid. Hovedprinsippet er at endringer skal følge utformingen som allerede finnes eller er mest vanlig i Kampen Hageby 2, slik at helhetsinntrykket ivaretas.
 
 **Kort fortalt:** Avklar fasadeendringer med styret før du bestiller arbeid eller materialer. At styret godkjenner et tiltak, betyr ikke automatisk at det er unntatt fra søknadsplikt hos Plan- og bygningsetaten (PBE).
@@ -31,7 +30,7 @@ Anbefalt standard er [Swedoor P-500, 100 × 210 cm, venstrehengslet, hvit med Co
 
 ### Vinduer
 
-- Vinduene skal være hvite og ha sprosser. Ventil anbefales.
+- Vinduene skal være hvite og ha sprosser. Ventil anbefales med mindre du har installert balansert ventilasjon.
 - Sprossebredden skal være 60–65 mm både vannrett og loddrett.
 - **Stuevindu:** 2 × 3 ruter. Mål mangler.
 - **Vanlig soveromsvindu:** 2 × 2 ruter; tegningen angir 139 × 139 cm. Eksempel er et innadslående Nordan sikkerhetsvindu med tre vridere og gjennomgående kryssprosser på 62 mm.
@@ -71,14 +70,16 @@ Utelamper skal være hvite. Det anbefales en lampe som ligner typene vist i retn
 
 Fargene ble harmonisert med fargene brukt i KH1 ved maling i 2022/23:
 
+
 | Bygningsdel/farge | Farge |
-| --- | --- |
+| -------------------------- | ----------------------------------------------- |
 | Rød fasade | NCS S5038-Y83R |
 | Gul fasade | NCS S2455-Y16R |
 | Grønn fasade | NCS S7310-G57Y |
 | Hvit fasade | Lillesandhvit, Jotun Drygolin eller tilsvarende |
 | Rekkverk ved inngangsparti | Beises mørkebrunt |
 | Gjerder | Males hvite |
+
 
 ## Branndør i garasjeanlegget
 
