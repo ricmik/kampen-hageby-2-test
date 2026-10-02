@@ -1,0 +1,36 @@
+title: Sameiet Kampen Hageby 2
+description: Nyheter, retningslinjer, dokumenter og nyttige lenker for beboere.
+lang: nb
+timezone: Europe/Oslo
+# Prosjektside på GitHub Pages: bytt til "" ved eget domene eller brukernavn.github.io.
+baseurl: "/test-github-pages"
+permalink: /nyhet-:title.html
+defaults:
+  - scope:
+      path: "index.md"
+    values:
+      layout: home
+      permalink: /
+  - scope:
+      path: "retningslinjer.md"
+    values:
+      layout: page
+      permalink: /retningslinjer.html
+      eyebrow: Bebyggelsen
+      image: /assets/hedmarksgata.jpg
+      image_alt: Fargerike hus og hvitt stakittgjerde i Hedmarksgata ved Kampen hageby
+      image_credit_url: https://commons.wikimedia.org/wiki/File:Hedmarksgata_ved_Kampen_hageby.jpg
+  - scope:
+      path: "dokumenter.md"
+    values:
+      layout: page
+      permalink: /dokumenter.html
+      eyebrow: Praktisk informasjon
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+exclude:
+  - README.md
+  - .pages.yml

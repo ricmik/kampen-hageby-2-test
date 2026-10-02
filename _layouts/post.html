@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<main id="innhold">
+  <article>
+    <header class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Brødsmulesti"><a href="{{ '/' | relative_url }}">Hjem</a><span aria-hidden="true">/</span><a href="{{ '/#siste-nytt' | relative_url }}">Siste nytt</a><span aria-hidden="true">/</span><span aria-current="page">{{ page.title | escape }}</span></nav>
+        <div class="page-intro">
+          <p class="eyebrow">{{ page.category | default: 'Oppdatering' | escape }} · <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%d.%m.%Y' }}</time></p>
+          <h1>{{ page.title | escape }}</h1>
+          {% if page.summary %}<p class="lead">{{ page.summary | escape }}</p>{% endif %}
+        </div>
+      </div>
+    </header>
+    <div class="container page-section"><div class="prose post-body">{{ content }}</div><a class="text-link back-link" href="{{ '/#siste-nytt' | relative_url }}">← Tilbake til siste nytt</a></div>
+  </article>
+</main>

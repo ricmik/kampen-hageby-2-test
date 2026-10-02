@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<main id="innhold">
+  <header class="page-hero">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Brødsmulesti"><a href="{{ '/' | relative_url }}">Hjem</a><span aria-hidden="true">/</span><span aria-current="page">{{ page.title | escape }}</span></nav>
+      <div class="page-intro">
+        <p class="eyebrow">{{ page.eyebrow | escape }}</p>
+        <h1>{{ page.title | escape }}</h1>
+        {% if page.lead %}<p class="lead">{{ page.lead | escape }}</p>{% endif %}
+      </div>
+    </div>
+  </header>
+  <section class="page-section" aria-label="Innhold">
+    <div class="container{% if page.image %} guidelines-layout{% endif %}">
+      <div class="prose">{{ content }}</div>
+      {% if page.image %}
+      <figure class="guideline-photo">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | escape }}" width="960" height="655" loading="lazy">
+        <figcaption>Områdefoto, ikke verifisert som sameiets eiendom. <a href="{{ page.image_credit_url }}" target="_blank" rel="noopener noreferrer">Jan-Tore Egge / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></figcaption>
+      </figure>
+      {% endif %}
+    </div>
+  </section>
+</main>

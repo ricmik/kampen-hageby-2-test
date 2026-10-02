@@ -1,0 +1,66 @@
+---
+layout: default
+---
+<main id="innhold">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Velkommen til {{ site.title }}</p>
+        <h1 id="hero-title">Nært, grønt,<br><em>sammen.</em></h1>
+        <div class="lead">{{ content }}</div>
+        <div class="hero-actions">
+          <a class="button" href="#siste-nytt">Se siste nytt <span aria-hidden="true">↓</span></a>
+          <a class="button button-outline" href="{{ '/dokumenter.html' | relative_url }}">Finn dokumenter <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="{{ '/assets/kampen-hageby.jpg' | relative_url }}" alt="Fargerike rekkehus og hvitt stakittgjerde i Kampen hageby" width="1280" height="960" fetchpriority="high">
+        <div class="photo-label" aria-hidden="true"><strong>Godt å høre til.</strong><span>Kampen, Oslo</span></div>
+        <p class="photo-credit">Områdefoto, ikke verifisert som sameiets eiendom. <a href="https://commons.wikimedia.org/wiki/File:Kampen_hageby_II.jpg" target="_blank" rel="noopener noreferrer">Jan-Tore Egge / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="quicklinks" aria-label="Snarveier">
+    <div class="container quicklinks-grid">
+      <a class="quicklink" href="#siste-nytt"><span class="quicklink-index">01 / AKTUELT</span><h2>Oppdateringer</h2><p>Nyheter og beskjeder på ett sted.</p><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="quicklink" href="{{ '/retningslinjer.html' | relative_url }}"><span class="quicklink-index">02 / BEBYGGELSEN</span><h2>Retningslinjer</h2><p>Et utgangspunkt før du planlegger endringer.</p><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="quicklink" href="{{ '/dokumenter.html' | relative_url }}"><span class="quicklink-index">03 / PRAKTISK</span><h2>Dokumenter og lenker</h2><p>Ressurser og tjenester for beboere.</p><span class="arrow" aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="section" id="siste-nytt" aria-labelledby="news-title">
+    <div class="container">
+      <p class="eyebrow">Informasjonstavlen</p>
+      <div class="section-heading">
+        <h2 id="news-title">Siste nytt fra<br>nabolaget.</h2>
+        <p>Her kan styret publisere oppdateringer og beskjeder til beboerne. Nyeste innlegg vises først.</p>
+      </div>
+      <div class="news-grid">
+        <div class="news-feed">
+          {% for post in site.posts %}
+          <article class="news-card">
+            <div class="news-meta"><span class="tag">{{ post.category | default: 'Oppdatering' | escape }}</span><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%d.%m.%Y' }}</time></div>
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+            <p>{{ post.summary | default: post.excerpt | strip_html | escape }}</p>
+            <a class="text-link" href="{{ post.url | relative_url }}">Les hele oppdateringen <span aria-hidden="true">↗</span></a>
+          </article>
+          {% else %}
+          <div class="news-card"><h3>Ingen oppdateringer ennå</h3><p>Nyheter fra sameiet vises her når de blir publisert.</p></div>
+          {% endfor %}
+        </div>
+        <aside class="news-note">
+          <span class="line-art" aria-hidden="true">✳</span>
+          <div><p class="eyebrow eyebrow-light">For beboere</p><h3>Alt samlet på ett sted.</h3><p>Flere meldinger og dokumenter legges ut etter hvert som styret gjør dem tilgjengelige.</p></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="banner" aria-labelledby="banner-title">
+      <div><p class="eyebrow">Ta vare på hagebyen</p><h2 id="banner-title">Planlegger du en endring hjemme?</h2></div>
+      <a class="button" href="{{ '/retningslinjer.html' | relative_url }}">Om bebyggelsen <span aria-hidden="true">↗</span></a>
+    </section>
+  </div>
+</main>

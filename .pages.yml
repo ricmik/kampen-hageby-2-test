@@ -1,0 +1,100 @@
+media:
+  - name: bilder
+    label: Bilder
+    input: assets/uploads
+    output: /test-github-pages/assets/uploads
+    categories: [image]
+  - name: dokumentfiler
+    label: Dokumenter (PDF)
+    input: filer
+    output: /test-github-pages/filer
+    extensions: [pdf]
+content:
+  - name: nyheter
+    label: Nyheter
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, date, category]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Overskrift
+        type: string
+        required: true
+      - name: date
+        label: Publiseringsdato
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: category
+        label: Kategori
+        type: string
+        description: For eksempel Informasjon fra styret, Vedlikehold eller Om nettsiden.
+      - name: summary
+        label: Kort ingress til forsiden
+        type: text
+        required: true
+      - name: body
+        label: Innhold
+        type: rich-text
+        options:
+          format: markdown
+          media: bilder
+  - name: forside
+    label: Forside – introduksjon
+    type: file
+    path: index.md
+    format: yaml-frontmatter
+    fields:
+      - name: body
+        label: Introduksjon under hovedoverskriften
+        type: rich-text
+        options:
+          format: markdown
+          media: false
+  - name: retningslinjer
+    label: Retningslinjer for bebyggelsen
+    type: file
+    path: retningslinjer.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Sidetittel
+        type: string
+        required: true
+      - name: lead
+        label: Ingress
+        type: text
+      - name: body
+        label: Innhold
+        type: rich-text
+        options:
+          format: markdown
+          media: bilder
+  - name: dokumenter
+    label: Dokumenter og lenker
+    type: file
+    path: dokumenter.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Sidetittel
+        type: string
+        required: true
+      - name: lead
+        label: Ingress
+        type: text
+      - name: body
+        label: Innhold og lenker
+        type: rich-text
+        options:
+          format: markdown
+          media: bilder
