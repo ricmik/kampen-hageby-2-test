@@ -80,7 +80,7 @@ content:
           format: markdown
           media: bilder
   - name: dokumenter
-    label: Dokumenter og lenker
+    label: Dokumenter fra sameiet
     type: file
     path: dokumenter.md
     format: yaml-frontmatter
@@ -94,6 +94,25 @@ content:
         type: text
       - name: body
         label: Innhold og lenker
+        type: rich-text
+        options:
+          format: markdown
+          media: bilder
+  - name: leverandorer
+    label: Leverandører og tjenester
+    type: file
+    path: leverandorer.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Sidetittel
+        type: string
+        required: true
+      - name: lead
+        label: Ingress
+        type: text
+      - name: body
+        label: Leverandører og lenker
         type: rich-text
         options:
           format: markdown

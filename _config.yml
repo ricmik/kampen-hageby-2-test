@@ -27,6 +27,12 @@ defaults:
       permalink: /dokumenter.html
       eyebrow: Praktisk informasjon
   - scope:
+      path: "leverandorer.md"
+    values:
+      layout: page
+      permalink: /leverandorer.html
+      eyebrow: Praktisk informasjon
+  - scope:
       path: ""
       type: posts
     values:

@@ -7,9 +7,9 @@ Nettsiden er laget for GitHub Pages. Innholdet ligger i Markdown-filer; designet
 1. Publiser først prosjektet på GitHub Pages (se under).
 2. Gå til [app.pagescms.org](https://app.pagescms.org/) og logg inn med GitHub.
 3. Gi Pages CMS-appen tilgang til **kun dette repositoriet** dersom GitHub tilbyr det valget. Tjenesten trenger skrivetilgang for å lagre endringer.
-4. Åpne repositoriet i Pages CMS. Filen `.pages.yml` setter opp en visuell redigerer for **Nyheter**, **Forside**, **Retningslinjer for bebyggelsen** og **Dokumenter og lenker**.
+4. Åpne repositoriet i Pages CMS. Filen `.pages.yml` setter opp en visuell redigerer for **Nyheter**, **Forside**, **Retningslinjer for bebyggelsen**, **Dokumenter fra sameiet** og **Leverandører og tjenester**.
 5. Velg **Nyheter → Ny**, skriv overskrift, dato, kort ingress og melding, og lagre. Innlegget vises automatisk øverst på forsiden når GitHub Pages har bygget siden på nytt. Hvert innlegg får også sin egen side.
-6. For dokumenter: Last opp godkjent PDF under **Media → Dokumenter (PDF)**. Åpne så **Dokumenter og lenker**, skriv for eksempel «Vedtekter (PDF)», marker teksten og bruk lenkeknappen i redigereren. Lim inn `/test-github-pages/filer/vedtekter.pdf` (med riktig filnavn). Du kan legge til eksterne leverandørlenker på samme måte.
+6. For dokumenter: Last opp godkjent PDF under **Media → Dokumenter (PDF)**. Åpne så **Dokumenter fra sameiet**, skriv for eksempel «Vedtekter (PDF)», marker teksten og bruk lenkeknappen i redigereren. Lim inn `/test-github-pages/filer/vedtekter.pdf` (med riktig filnavn). Legg til eksterne leverandørlenker på siden **Leverandører og tjenester**.
 
 Pages CMS er en **valgfri tredjepartstjeneste**. Den lagrer endringer direkte i GitHub-repositoriet, ikke i en egen innholdsdatabase. Gi kun de personene som skal publisere, tilgang, og vurder alltid hvilke rettigheter dere gir GitHub-appen. Nettsiden fortsetter å fungere uten Pages CMS.
 
@@ -17,7 +17,8 @@ Pages CMS er en **valgfri tredjepartstjeneste**. Den lagrer endringer direkte i 
 
 - **Ny melding:** Opprett en fil i `_posts/` med navn `ÅÅÅÅ-MM-DD-kort-tittel.md`. Kopier oppsettet fra et eksisterende innlegg og erstatt tittel, dato, kategori, ingress (`summary`) og selve teksten under `---`. Nyheter sorteres etter dato, nyeste først.
 - **Retningslinjer:** Rediger `retningslinjer.md`.
-- **Dokumenter og leverandører:** Rediger `dokumenter.md`. Last opp offentlige PDF-er til `filer/` og lenk til dem med `[Dokumentnavn](filer/filnavn.pdf)`.
+- **Dokumenter fra sameiet:** Rediger `dokumenter.md`. Last opp offentlige PDF-er til `filer/` og lenk til dem med `[Dokumentnavn](filer/filnavn.pdf)`.
+- **Leverandører og tjenester:** Rediger `leverandorer.md`.
 - **Introduksjonen på forsiden:** Rediger `index.md`.
 
 I Markdown betyr `##` en overskrift, `**tekst**` uthevet tekst og `[lenketekst](adresse)` en lenke. GitHubs redigeringsside har forhåndsvisning før du lagrer. Ikke legg personopplysninger, upubliserte vedtak eller andre private dokumenter i repositoriet: **GitHub Pages og filer i et offentlig repo er åpne for alle**, også hvis de ikke er lenket fra nettsiden.
