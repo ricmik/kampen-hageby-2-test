@@ -19,6 +19,21 @@ permalink: /search.json
     {% assign rendered = true %}
   {% endif %}
 {% endfor %}
+{% for item in site.dokumenter %}
+  {% if item.title and item.file %}
+    {% if rendered %},{% endif %}
+    {
+      "title": {{ item.title | jsonify }},
+      "url": {{ item.file | jsonify }},
+      "content": {{ item.summary | default: item.category | normalize_whitespace | jsonify }},
+      "summary": {{ item.summary | default: item.category | normalize_whitespace | jsonify }},
+      "category": {{ item.category | default: "Dokument" | jsonify }},
+      "date": {{ item.date | date: "%Y-%m-%d" | jsonify }},
+      "type": "Dokument"
+    }
+    {% assign rendered = true %}
+  {% endif %}
+{% endfor %}
 {% for item in site.pages %}
   {% if item.title and item.url != '/' and item.url != '/search.html' and item.url != '/search.json' %}
     {% if rendered %},{% endif %}

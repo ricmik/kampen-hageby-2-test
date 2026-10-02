@@ -280,6 +280,15 @@ h3 { letter-spacing: -.02em; }
   border-radius: 10px;
   color: var(--muted);
 }
+.document-list { margin-top: 40px; }
+.document-list h2 { font-size: clamp(30px, 3.5vw, 42px); line-height: 1.2; margin-bottom: 20px; }
+.document-list ul { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
+.document-item { padding: 20px 22px; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; }
+.document-item > a { color: var(--pine); font-weight: 750; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.document-item > a:hover { color: var(--rust); }
+.document-item p { margin: 8px 0; color: #536458; }
+.document-item small { color: var(--muted); font-size: 12px; }
+.document-list-empty { padding: 20px 22px; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; color: var(--muted); }
 
 .site-footer { background: var(--pine-deep); color: #f4f5ec; padding: 67px 0 27px; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 50px; padding-bottom: 68px; }

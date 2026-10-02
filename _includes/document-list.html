@@ -1,0 +1,23 @@
+<section class="document-list" aria-labelledby="published-documents">
+  <h2 id="published-documents">Publiserte dokumenter</h2>
+  {% assign documents = site.dokumenter | sort: "date" | reverse %}
+  {% if documents.size > 0 %}
+  <ul>
+    {% for document in documents %}
+      {% if document.title and document.file %}
+      <li class="document-item">
+        <a href="{{ document.file | escape }}">{{ document.title | escape }}</a>
+        {% if document.summary %}<p>{{ document.summary | escape }}</p>{% endif %}
+        <small>
+          {% if document.category %}{{ document.category | escape }}{% endif %}
+          {% if document.category and document.date %} · {% endif %}
+          {% if document.date %}<time datetime="{{ document.date | date: '%Y-%m-%d' }}">{{ document.date | date: "%-d. %-m. %Y" }}</time>{% endif %}
+        </small>
+      </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="document-list-empty">Ingen dokumenter er publisert ennå.</p>
+  {% endif %}
+</section>

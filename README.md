@@ -9,7 +9,7 @@ Nettsiden er laget for GitHub Pages. Innholdet ligger i Markdown-filer; designet
 3. Gi Pages CMS-appen tilgang til **kun dette repositoriet** dersom GitHub tilbyr det valget. Tjenesten trenger skrivetilgang for å lagre endringer.
 4. Åpne repositoriet i Pages CMS. Filen `.pages.yml` setter opp en visuell redigerer for **Nyheter**, **Forside**, **Retningslinjer for bebyggelsen**, **Dokumenter fra sameiet** og **Leverandører og tjenester**.
 5. Velg **Nyheter → Ny**, skriv overskrift, dato, kort ingress og melding, og lagre. Innlegget vises automatisk øverst på forsiden når GitHub Pages har bygget siden på nytt. Hvert innlegg får også sin egen side.
-6. For dokumenter: Last opp godkjent PDF under **Media → Dokumenter (PDF)**. Åpne så **Dokumenter fra sameiet**, skriv for eksempel «Vedtekter (PDF)», marker teksten og bruk lenkeknappen i redigereren. Lim inn `/test-github-pages/filer/vedtekter.pdf` (med riktig filnavn). Legg til eksterne leverandørlenker på siden **Leverandører og tjenester**.
+6. For dokumenter: Åpne **Publiserte dokumenter → Ny**, skriv dokumenttittel, velg eller last opp PDF i feltet **PDF-dokument**, fyll inn dato og eventuelt dokumenttype/beskrivelse, og lagre. Dokumentet vises automatisk på siden **Dokumenter fra sameiet** og blir søkbart etter at GitHub Pages har bygget nettstedet på nytt. Du trenger ikke skrive en lenke eller Markdown. Legg til eksterne leverandørlenker på siden **Leverandører og tjenester**.
 
 Pages CMS er en **valgfri tredjepartstjeneste**. Den lagrer endringer direkte i GitHub-repositoriet, ikke i en egen innholdsdatabase. Gi kun de personene som skal publisere, tilgang, og vurder alltid hvilke rettigheter dere gir GitHub-appen. Nettsiden fortsetter å fungere uten Pages CMS.
 
@@ -17,7 +17,7 @@ Pages CMS er en **valgfri tredjepartstjeneste**. Den lagrer endringer direkte i 
 
 - **Ny melding:** Opprett en fil i `_posts/` med navn `ÅÅÅÅ-MM-DD-kort-tittel.md`. Kopier oppsettet fra et eksisterende innlegg og erstatt tittel, dato, kategori, ingress (`summary`) og selve teksten under `---`. Nyheter sorteres etter dato, nyeste først.
 - **Retningslinjer:** Rediger `retningslinjer.md`.
-- **Dokumenter fra sameiet:** Rediger `dokumenter.md`. Last opp offentlige PDF-er til `filer/` og lenk til dem med `[Dokumentnavn](filer/filnavn.pdf)`.
+- **Dokumenter fra sameiet:** Opprett en Markdown-fil i `_dokumenter/` med dokumentets `title`, `file` (sti til PDF i `filer/`), `date` og eventuelt `category` og `summary` i YAML-front matter. Jekyll viser og indekserer filen automatisk. Den enkleste metoden er likevel Pages CMS-feltet **Publiserte dokumenter**.
 - **Leverandører og tjenester:** Rediger `leverandorer.md`.
 - **Introduksjonen på forsiden:** Rediger `index.md`.
 
@@ -29,7 +29,7 @@ Gjeldende vedtekter og regler er **ikke** levert som del av dette prosjektet. Te
 
 1. Opprett et offentlig GitHub-repo og legg prosjektfilene i repoets rotmappe.
 2. I GitHub: **Settings → Pages → Build and deployment → Deploy from a branch**. Velg hovedgrenen og **/(root)**, og lagre. GitHub Pages bygger Markdown-filene med Jekyll automatisk. Ikke legg til en `.nojekyll`-fil.
-3. I `_config.yml` er `baseurl` satt til `/test-github-pages`. Dette må stemme med **repoets navn** for en prosjektside på `brukernavn.github.io/test-github-pages/`. Hvis repoet heter noe annet, endre verdien til `/<repo-navn>` **og** oppdater begge `output`-stiene i `.pages.yml` til `/<repo-navn>/assets/uploads` og `/<repo-navn>/filer`. Ved eget domene eller en brukerside (`brukernavn.github.io`), bruk `baseurl: ""` og `output: /assets/uploads` / `output: /filer`.
+3. I `_config.yml` er `baseurl` satt til `/kampen-hageby-2-test`. Dette må stemme med **repoets navn** for en prosjektside på `brukernavn.github.io/kampen-hageby-2-test/`. Hvis repoet heter noe annet, endre verdien til `/<repo-navn>` **og** oppdater `output`-stiene i `.pages.yml` til `/<repo-navn>/assets/uploads` og `/<repo-navn>/filer`. Ved eget domene eller en brukerside (`brukernavn.github.io`), bruk `baseurl: ""` og `output: /assets/uploads` / `output: /filer`.
 4. Etter hver lagrede endring tar det normalt litt tid før GitHub Pages viser ny versjon. Hvis siden ikke oppdateres, se byggeloggen under **Actions** i GitHub.
 
 Hvis GitHub Pages i stedet er konfigurert med egen GitHub Actions-workflow, må denne støtte Jekyll; ren opplasting av filene uten bygging vil **ikke** vise Markdown-sidene.

@@ -48,6 +48,43 @@ content:
         options:
           format: markdown
           media: bilder
+  - name: publiserte_dokumenter
+    label: Publiserte dokumenter
+    type: collection
+    path: _dokumenter
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [title, date, category]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Dokumenttittel
+        type: string
+        required: true
+      - name: file
+        label: PDF-dokument
+        type: file
+        required: true
+        options:
+          media: dokumentfiler
+      - name: date
+        label: Dato
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: category
+        label: Dokumenttype
+        type: string
+        description: For eksempel Vedtekter, Referat eller Årsberetning.
+      - name: summary
+        label: Kort beskrivelse
+        type: text
   - name: forside
     label: Forside – introduksjon
     type: file

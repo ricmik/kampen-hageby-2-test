@@ -5,6 +5,9 @@ timezone: Europe/Oslo
 # Prosjektside på GitHub Pages: bytt til "" ved eget domene eller brukernavn.github.io.
 baseurl: "/kampen-hageby-2-test"
 permalink: /nyhet-:title.html
+collections:
+  dokumenter:
+    output: false
 defaults:
   - scope:
       path: "index.md"
@@ -26,6 +29,7 @@ defaults:
       layout: page
       permalink: /dokumenter.html
       eyebrow: Praktisk informasjon
+      document_list: true
   - scope:
       path: "leverandorer.md"
     values:
