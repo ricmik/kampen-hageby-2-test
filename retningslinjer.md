@@ -1,10 +1,10 @@
 ---
 title: Retningslinjer for bebyggelsen
 lead: Veiledning for endringer og utskiftninger som påvirker bebyggelsens utseende.
-image: /kampen-hageby-2-test/assets/hedmarksgata.jpg
-image_alt: Fargerike hus og hvitt stakittgjerde i Hedmarksgata ved Kampen hageby
-image_credit: Jan-Tore Egge / Wikimedia Commons
-image_credit_url: https://commons.wikimedia.org/wiki/File:Hedmarksgata_ved_Kampen_hageby.jpg
+image: /kampen-hageby-2-test/assets/Kampen_hageby_46-37,_Oslo Medium.jpeg
+image_alt: Fargerike hus i Rolf Hofmos Gate ved Kampen hageby
+image_credit: Ssu / Wikimedia Commons
+image_credit_url: https://commons.wikimedia.org/wiki/File:Kampen_hageby_46-37,_Oslo.jpg
 image_license: CC BY-SA 4.0
 image_license_url: https://creativecommons.org/licenses/by-sa/4.0/
 ---
