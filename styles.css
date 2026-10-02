@@ -184,7 +184,7 @@ h3 { letter-spacing: -.02em; }
 .banner .eyebrow { margin-bottom: 10px; }
 .banner h2 { font-size: clamp(30px, 3.4vw, 44px); line-height: 1.13; margin-bottom: 0; }
 
-.page-hero { padding: 76px 0 75px; }
+.page-hero { padding: 76px 0 30px; }
 .page-intro { max-width: 850px; }
 .page-intro h1 { font-size: clamp(51px, 6vw, 82px); line-height: 1.08; margin: 0 0 22px; }
 .page-intro .lead { max-width: 690px; margin-bottom: 0; }
@@ -192,7 +192,7 @@ h3 { letter-spacing: -.02em; }
 .breadcrumbs a { text-decoration: none; }
 .breadcrumbs a:hover { text-decoration: underline; }
 .breadcrumbs span[aria-current] { color: var(--ink); }
-.page-section { padding: 78px 0 100px; }
+.page-section { padding: 34px 0 100px; }
 .guidelines-layout { display: grid; grid-template-columns: 1fr .84fr; gap: clamp(40px, 8vw, 115px); align-items: start; }
 .guideline-photo { margin: 0; }
 .guideline-photo img { width: 100%; height: 480px; object-fit: cover; border-radius: 170px 170px 5px 5px; }
@@ -357,7 +357,8 @@ h3 { letter-spacing: -.02em; }
   .news-note { min-height: 240px; }
   .banner { margin-bottom: 70px; padding: 32px; display: block; }
   .banner .button { margin-top: 25px; }
-  .page-hero { padding: 47px 0 56px; }
+  .page-hero { padding: 47px 0 24px; }
+  .page-section { padding: 36px 0 73px; }
   .page-intro h1 { font-size: clamp(50px, 9vw, 69px); }
 
   .guideline-photo img { height: 375px; }
