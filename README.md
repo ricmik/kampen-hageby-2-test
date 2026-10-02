@@ -11,6 +11,7 @@ Nettsiden er laget for GitHub Pages. Innholdet ligger i Markdown-filer; designet
 5. Velg **Nyheter → Ny**, skriv overskrift, dato, kort ingress og melding, og lagre. Innlegget vises automatisk øverst på forsiden når GitHub Pages har bygget siden på nytt. Hvert innlegg får også sin egen side.
 6. For dokumenter: Åpne **Publiserte dokumenter → Ny**, skriv dokumenttittel, velg eller last opp PDF i feltet **PDF-dokument**, fyll inn dato og eventuelt dokumenttype/beskrivelse, og lagre. Dokumentet vises automatisk på siden **Dokumenter fra sameiet** og blir søkbart etter at GitHub Pages har bygget nettstedet på nytt. Du trenger ikke skrive en lenke eller Markdown. Legg til eksterne leverandørlenker på siden **Leverandører og tjenester**.
 7. For spørsmål og svar: Åpne **Ofte stilte spørsmål → Ny**, skriv spørsmålet og svaret i feltene. Oppføringen vises automatisk på FAQ-siden og blir søkbar.
+8. For å endre bildene på forsiden eller retningslinjesiden: åpne **Forside – introduksjon** eller **Retningslinjer for bebyggelsen**. Velg eller last opp et bilde i bildefeltet, og oppdater alternativ tekst og kilde/lisens samtidig. Bruk bare bilder dere har rett til å publisere.
 
 Pages CMS er en **valgfri tredjepartstjeneste**. Den lagrer endringer direkte i GitHub-repositoriet, ikke i en egen innholdsdatabase. Gi kun de personene som skal publisere, tilgang, og vurder alltid hvilke rettigheter dere gir GitHub-appen. Nettsiden fortsetter å fungere uten Pages CMS.
 

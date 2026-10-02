@@ -4,6 +4,11 @@ media:
     input: assets/uploads
     output: /kampen-hageby-2-test/assets/uploads
     categories: [image]
+  - name: sidebilder
+    label: Bilder til nettsidene
+    input: assets
+    output: /kampen-hageby-2-test/assets
+    categories: [image]
   - name: dokumentfiler
     label: Dokumenter (PDF)
     input: filer
@@ -116,6 +121,28 @@ content:
     path: index.md
     format: yaml-frontmatter
     fields:
+      - name: image
+        label: Hovedbilde
+        type: image
+        required: true
+        options:
+          media: sidebilder
+      - name: image_alt
+        label: Beskriv bildet for skjermlesere
+        type: string
+        required: true
+      - name: image_credit
+        label: Fotograf og kilde
+        type: string
+      - name: image_credit_url
+        label: Lenke til bildekilden
+        type: string
+      - name: image_license
+        label: Bildelisens
+        type: string
+      - name: image_license_url
+        label: Lenke til bildelisensen
+        type: string
       - name: body
         label: Introduksjon under hovedoverskriften
         type: rich-text
@@ -135,6 +162,28 @@ content:
       - name: lead
         label: Ingress
         type: text
+      - name: image
+        label: Bilde på siden
+        type: image
+        required: true
+        options:
+          media: sidebilder
+      - name: image_alt
+        label: Beskriv bildet for skjermlesere
+        type: string
+        required: true
+      - name: image_credit
+        label: Fotograf og kilde
+        type: string
+      - name: image_credit_url
+        label: Lenke til bildekilden
+        type: string
+      - name: image_license
+        label: Bildelisens
+        type: string
+      - name: image_license_url
+        label: Lenke til bildelisensen
+        type: string
       - name: body
         label: Innhold
         type: rich-text

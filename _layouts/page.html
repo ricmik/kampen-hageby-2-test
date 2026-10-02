@@ -1,6 +1,11 @@
 ---
 layout: default
 ---
+{% assign page_image = page.image %}
+{% assign baseurl_prefix = site.baseurl | append: '/' %}
+{% if site.baseurl != '' and page_image contains baseurl_prefix %}
+  {% assign page_image = page_image | remove_first: site.baseurl %}
+{% endif %}
 <main id="innhold">
   <header class="page-hero">
     <div class="container">
@@ -19,8 +24,13 @@ layout: default
       {% if page.faq_list %}{% include faq-list.html %}{% endif %}
       {% if page.image %}
       <figure class="guideline-photo">
-        <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | escape }}" width="960" height="655" loading="lazy">
-        <figcaption>Områdefoto, ikke verifisert som sameiets eiendom. <a href="{{ page.image_credit_url }}" target="_blank" rel="noopener noreferrer">Jan-Tore Egge / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></figcaption>
+        <img src="{{ page_image | relative_url }}" alt="{{ page.image_alt | escape }}" width="960" height="655" loading="lazy">
+        {% if page.image_credit or page.image_license %}
+        <figcaption>
+          {% if page.image_credit_url and page.image_credit %}<a href="{{ page.image_credit_url | escape }}" target="_blank" rel="noopener noreferrer">{{ page.image_credit | escape }}</a>{% elsif page.image_credit %}{{ page.image_credit | escape }}{% endif %}
+          {% if page.image_license_url and page.image_license %}{% if page.image_credit %} · {% endif %}<a href="{{ page.image_license_url | escape }}" target="_blank" rel="noopener noreferrer">{{ page.image_license | escape }}</a>{% elsif page.image_license %}{% if page.image_credit %} · {% endif %}{{ page.image_license | escape }}{% endif %}
+        </figcaption>
+        {% endif %}
       </figure>
       {% endif %}
     </div>

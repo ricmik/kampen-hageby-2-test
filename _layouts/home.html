@@ -1,6 +1,11 @@
 ---
 layout: default
 ---
+{% assign hero_image = page.image | default: '/assets/kampen-hageby.jpg' %}
+{% assign baseurl_prefix = site.baseurl | append: '/' %}
+{% if site.baseurl != '' and hero_image contains baseurl_prefix %}
+  {% assign hero_image = hero_image | remove_first: site.baseurl %}
+{% endif %}
 <main id="innhold">
   <section class="hero" aria-labelledby="hero-title">
     <div class="container hero-grid">
@@ -14,9 +19,14 @@ layout: default
         </div>
       </div>
       <div class="hero-visual">
-        <img src="{{ '/assets/kampen-hageby.jpg' | relative_url }}" alt="Fargerike rekkehus og hvitt stakittgjerde i Kampen hageby" width="1280" height="960" fetchpriority="high">
+        <img src="{{ hero_image | relative_url }}" alt="{{ page.image_alt | default: 'Fargerike rekkehus og hvitt stakittgjerde i Kampen hageby' | escape }}" width="1280" height="960" fetchpriority="high">
         <div class="photo-label" aria-hidden="true"><strong>Godt å høre til.</strong><span>Kampen, Oslo</span></div>
-        <p class="photo-credit">Områdefoto, ikke verifisert som sameiets eiendom. <a href="https://commons.wikimedia.org/wiki/File:Kampen_hageby_II.jpg" target="_blank" rel="noopener noreferrer">Jan-Tore Egge / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></p>
+        {% if page.image_credit or page.image_license %}
+        <p class="photo-credit">
+          {% if page.image_credit_url and page.image_credit %}<a href="{{ page.image_credit_url | escape }}" target="_blank" rel="noopener noreferrer">{{ page.image_credit | escape }}</a>{% elsif page.image_credit %}{{ page.image_credit | escape }}{% endif %}
+          {% if page.image_license_url and page.image_license %}{% if page.image_credit %} · {% endif %}<a href="{{ page.image_license_url | escape }}" target="_blank" rel="noopener noreferrer">{{ page.image_license | escape }}</a>{% elsif page.image_license %}{% if page.image_credit %} · {% endif %}{{ page.image_license | escape }}{% endif %}
+        </p>
+        {% endif %}
       </div>
     </div>
   </section>

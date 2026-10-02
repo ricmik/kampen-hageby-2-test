@@ -1,6 +1,12 @@
 ---
 title: Retningslinjer for bebyggelsen
 lead: Veiledning for endringer og utskiftninger som påvirker bebyggelsens utseende.
+image: /kampen-hageby-2-test/assets/hedmarksgata.jpg
+image_alt: Fargerike hus og hvitt stakittgjerde i Hedmarksgata ved Kampen hageby
+image_credit: Jan-Tore Egge / Wikimedia Commons
+image_credit_url: https://commons.wikimedia.org/wiki/File:Hedmarksgata_ved_Kampen_hageby.jpg
+image_license: CC BY-SA 4.0
+image_license_url: https://creativecommons.org/licenses/by-sa/4.0/
 ---
 Retningslinjene skal bidra til en felles forståelse av bebyggelsens utforming og til konsekvente beslutninger over tid. Hovedprinsippet er at endringer skal følge utformingen som allerede finnes eller er mest vanlig i Kampen Hageby 2, slik at helhetsinntrykket ivaretas.
 
