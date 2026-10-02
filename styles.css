@@ -289,6 +289,16 @@ h3 { letter-spacing: -.02em; }
 .document-item p { margin: 8px 0; color: #536458; }
 .document-item small { color: var(--muted); font-size: 12px; }
 .document-list-empty { padding: 20px 22px; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; color: var(--muted); }
+.faq-list { display: grid; gap: 12px; margin-top: 34px; }
+.faq-item { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; }
+.faq-item[open] { border-color: #bdcbbd; }
+.faq-item summary { position: relative; padding: 19px 54px 19px 22px; color: var(--pine); cursor: pointer; font-size: 18px; font-weight: 750; line-height: 1.45; list-style: none; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; position: absolute; right: 22px; top: 50%; color: var(--rust); font-size: 24px; font-weight: 400; transform: translateY(-50%); }
+.faq-item[open] summary::after { content: "−"; }
+.faq-item summary:focus-visible { outline-offset: -4px; border-radius: 6px; }
+.faq-answer { padding: 0 22px 20px; color: #3e4d43; }
+.faq-answer p:last-child { margin-bottom: 0; }
 
 .site-footer { background: var(--pine-deep); color: #f4f5ec; padding: 67px 0 27px; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 50px; padding-bottom: 68px; }

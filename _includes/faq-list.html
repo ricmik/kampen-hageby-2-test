@@ -1,0 +1,11 @@
+<section class="faq-list" aria-label="Spørsmål og svar">
+  {% assign questions = site.faq | sort: "title" %}
+  {% for question in questions %}
+    {% if question.title %}
+    <details class="faq-item" id="{{ question.title | slugify }}">
+      <summary>{{ question.title | escape }}</summary>
+      <div class="faq-answer prose">{{ question.content }}</div>
+    </details>
+    {% endif %}
+  {% endfor %}
+</section>

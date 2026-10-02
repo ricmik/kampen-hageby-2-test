@@ -7,9 +7,10 @@ Nettsiden er laget for GitHub Pages. Innholdet ligger i Markdown-filer; designet
 1. Publiser først prosjektet på GitHub Pages (se under).
 2. Gå til [app.pagescms.org](https://app.pagescms.org/) og logg inn med GitHub.
 3. Gi Pages CMS-appen tilgang til **kun dette repositoriet** dersom GitHub tilbyr det valget. Tjenesten trenger skrivetilgang for å lagre endringer.
-4. Åpne repositoriet i Pages CMS. Filen `.pages.yml` setter opp en visuell redigerer for **Nyheter**, **Forside**, **Retningslinjer for bebyggelsen**, **Dokumenter fra sameiet** og **Leverandører og tjenester**.
+4. Åpne repositoriet i Pages CMS. Filen `.pages.yml` setter opp en visuell redigerer for **Nyheter**, **Publiserte dokumenter**, **Ofte stilte spørsmål**, **Forside**, **Retningslinjer for bebyggelsen**, **Dokumenter fra sameiet** og **Leverandører og tjenester**.
 5. Velg **Nyheter → Ny**, skriv overskrift, dato, kort ingress og melding, og lagre. Innlegget vises automatisk øverst på forsiden når GitHub Pages har bygget siden på nytt. Hvert innlegg får også sin egen side.
 6. For dokumenter: Åpne **Publiserte dokumenter → Ny**, skriv dokumenttittel, velg eller last opp PDF i feltet **PDF-dokument**, fyll inn dato og eventuelt dokumenttype/beskrivelse, og lagre. Dokumentet vises automatisk på siden **Dokumenter fra sameiet** og blir søkbart etter at GitHub Pages har bygget nettstedet på nytt. Du trenger ikke skrive en lenke eller Markdown. Legg til eksterne leverandørlenker på siden **Leverandører og tjenester**.
+7. For spørsmål og svar: Åpne **Ofte stilte spørsmål → Ny**, skriv spørsmålet og svaret i feltene. Oppføringen vises automatisk på FAQ-siden og blir søkbar.
 
 Pages CMS er en **valgfri tredjepartstjeneste**. Den lagrer endringer direkte i GitHub-repositoriet, ikke i en egen innholdsdatabase. Gi kun de personene som skal publisere, tilgang, og vurder alltid hvilke rettigheter dere gir GitHub-appen. Nettsiden fortsetter å fungere uten Pages CMS.
 
@@ -18,6 +19,7 @@ Pages CMS er en **valgfri tredjepartstjeneste**. Den lagrer endringer direkte i 
 - **Ny melding:** Opprett en fil i `_posts/` med navn `ÅÅÅÅ-MM-DD-kort-tittel.md`. Kopier oppsettet fra et eksisterende innlegg og erstatt tittel, dato, kategori, ingress (`summary`) og selve teksten under `---`. Nyheter sorteres etter dato, nyeste først.
 - **Retningslinjer:** Rediger `retningslinjer.md`.
 - **Dokumenter fra sameiet:** Opprett en Markdown-fil i `_dokumenter/` med dokumentets `title`, `file` (sti til PDF i `filer/`), `date` og eventuelt `category` og `summary` i YAML-front matter. Jekyll viser og indekserer filen automatisk. Den enkleste metoden er likevel Pages CMS-feltet **Publiserte dokumenter**.
+- **Ofte stilte spørsmål:** Opprett en Markdown-fil i `_faq/` med spørsmålet som `title` i YAML-front matter og svaret under front matter. Jekyll viser og indekserer oppføringen automatisk. Bruk Pages CMS-feltet **Ofte stilte spørsmål** for visuell redigering.
 - **Leverandører og tjenester:** Rediger `leverandorer.md`.
 - **Introduksjonen på forsiden:** Rediger `index.md`.
 

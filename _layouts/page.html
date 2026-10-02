@@ -16,6 +16,7 @@ layout: default
     <div class="container{% if page.image %} guidelines-layout{% endif %}">
       <div class="prose">{{ content }}</div>
       {% if page.document_list %}{% include document-list.html %}{% endif %}
+      {% if page.faq_list %}{% include faq-list.html %}{% endif %}
       {% if page.image %}
       <figure class="guideline-photo">
         <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | escape }}" width="960" height="655" loading="lazy">

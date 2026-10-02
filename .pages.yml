@@ -85,6 +85,31 @@ content:
       - name: summary
         label: Kort beskrivelse
         type: text
+  - name: faq
+    label: Ofte stilte spørsmål
+    type: collection
+    path: _faq
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [title]
+      primary: title
+      sort: [title]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: Spørsmål
+        type: string
+        required: true
+      - name: body
+        label: Svar
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: false
   - name: forside
     label: Forside – introduksjon
     type: file

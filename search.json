@@ -34,6 +34,22 @@ permalink: /search.json
     {% assign rendered = true %}
   {% endif %}
 {% endfor %}
+{% for item in site.faq %}
+  {% if item.title %}
+    {% if rendered %},{% endif %}
+    {% capture faq_url %}/ofte-stilte-sporsmal.html#{{ item.title | slugify }}{% endcapture %}
+    {
+      "title": {{ item.title | jsonify }},
+      "url": {{ faq_url | relative_url | jsonify }},
+      "content": {{ item.content | strip_html | normalize_whitespace | jsonify }},
+      "summary": {{ item.content | strip_html | normalize_whitespace | jsonify }},
+      "category": "Ofte stilte spørsmål",
+      "date": "",
+      "type": "Spørsmål og svar"
+    }
+    {% assign rendered = true %}
+  {% endif %}
+{% endfor %}
 {% for item in site.pages %}
   {% if item.title and item.url != '/' and item.url != '/search.html' and item.url != '/search.json' %}
     {% if rendered %},{% endif %}

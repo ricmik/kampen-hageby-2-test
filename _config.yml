@@ -8,6 +8,8 @@ permalink: /nyhet-:title.html
 collections:
   dokumenter:
     output: false
+  faq:
+    output: false
 defaults:
   - scope:
       path: "index.md"
@@ -36,6 +38,13 @@ defaults:
       layout: page
       permalink: /leverandorer.html
       eyebrow: Praktisk informasjon
+  - scope:
+      path: "ofte-stilte-sporsmal.md"
+    values:
+      layout: page
+      permalink: /ofte-stilte-sporsmal.html
+      eyebrow: Praktisk informasjon
+      faq_list: true
   - scope:
       path: ""
       type: posts
