@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#19392e">
+  <meta name="description" content="Nyheter, retningslinjer, dokumenter og nyttige lenker for beboere.">
+  <title>Søk – Sameiet Kampen Hageby 2</title>
+  <link rel="stylesheet" href="/kampen-hageby-2-test/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#innhold">Hopp til innhold</a>
+  <header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/kampen-hageby-2-test/" aria-label="Sameiet Kampen Hageby 2 – hjem">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M3 16 10 9l6 6 6-6 7 7M6 14v11h20V14M12 25v-7h8v7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="brand-name">Kampen Hageby 2<small>Sameiet · Oslo</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Hovedmeny">
+      <a href="/kampen-hageby-2-test/">Hjem</a>
+      <a href="/kampen-hageby-2-test/retningslinjer.html">Retningslinjer</a>
+      <a href="/kampen-hageby-2-test/dokumenter.html">Dokumenter fra sameiet</a>
+      <a href="/kampen-hageby-2-test/leverandorer.html">Leverandører og tjenester</a>
+    </nav>
+    <form class="header-search" action="/kampen-hageby-2-test/search.html" method="get">
+      <label class="visually-hidden" for="site-search-input">Søk på nettsiden</label>
+      <input id="site-search-input" type="search" name="q" placeholder="Søk..." aria-label="Søk på nettsiden">
+      <button type="submit" aria-label="Søk">Søk</button>
+    </form>
+    <a class="header-action" href="/kampen-hageby-2-test/#siste-nytt">Siste nytt <span aria-hidden="true">↗</span></a>
+    <details class="mobile-nav">
+      <summary>Meny</summary>
+      <nav aria-label="Mobilmeny">
+        <a href="/kampen-hageby-2-test/">Hjem</a>
+        <a href="/kampen-hageby-2-test/#siste-nytt">Siste nytt</a>
+        <a href="/kampen-hageby-2-test/retningslinjer.html">Retningslinjer</a>
+        <a href="/kampen-hageby-2-test/dokumenter.html">Dokumenter fra sameiet</a>
+        <a href="/kampen-hageby-2-test/leverandorer.html">Leverandører og tjenester</a>
+        <a href="/kampen-hageby-2-test/search.html">Søk</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+  <section class="page-hero">
+  <div class="container">
+    <div class="page-intro">
+      <p class="eyebrow">Søk</p>
+      <h1>Søk i sammeiet</h1>
+      <p class="lead">Finn nyheter, retningslinjer, dokumenter og praktisk informasjon om Kampen Hageby 2.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <form class="search-form" id="search-form" action="/kampen-hageby-2-test/search.html" method="get">
+      <label class="visually-hidden" for="search-query">Søk etter innhold</label>
+      <input id="search-query" name="q" type="search" placeholder="Søk etter nyhet, dokument, regler eller emne..." autocomplete="off">
+      <button class="button" type="submit">Søk</button>
+    </form>
+
+    <div id="search-status" class="search-status" aria-live="polite">Laster søkeindeks...</div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const searchForm = document.getElementById('search-form');
+    const queryInput = document.getElementById('search-query');
+    const resultsContainer = document.getElementById('search-results');
+    const statusElement = document.getElementById('search-status');
+    const searchUrl = '/kampen-hageby-2-test/search.json';
+    let index = [];
+
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function escapeRegExp(value) {
+      return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function highlightMatch(text, query) {
+      const safeText = escapeHtml(text || '');
+      if (!query) return safeText;
+      const regex = new RegExp('(' + escapeRegExp(query) + ')', 'gi');
+      return safeText.replace(regex, '<mark>$1</mark>');
+    }
+
+    function normalize(text) {
+      return String(text || '').toLowerCase().replace(/\s+/g, ' ').trim();
+    }
+
+    function getSnippet(text, query) {
+      const cleanText = String(text || '').replace(/\s+/g, ' ').trim();
+      if (!cleanText) return '';
+      const lower = cleanText.toLowerCase();
+      const index = lower.indexOf(query.toLowerCase());
+      if (index === -1) {
+        return cleanText.length > 180 ? cleanText.slice(0, 177) + '...' : cleanText;
+      }
+      const start = Math.max(0, index - 70);
+      const end = Math.min(cleanText.length, index + query.length + 110);
+      return (start > 0 ? '...' : '') + cleanText.slice(start, end) + (end < cleanText.length ? '...' : '');
+    }
+
+    function renderMatches(matches, query) {
+      if (!matches.length) {
+        statusElement.textContent = 'Fant ingen treff for søket «' + query + '». Prøv et annet ord.';
+        resultsContainer.innerHTML = '<div class="search-empty">Ingen sider eller nyheter matcher søket ditt. Prøv å søke etter «regler», «dokumenter», «forening» eller «vedlikehold».</div>';
+        return;
+      }
+
+      statusElement.textContent = 'Fant ' + matches.length + ' treff for søket «' + query + '». ';
+      resultsContainer.innerHTML = matches.map(function (item) {
+        const summary = highlightMatch(getSnippet(item.summary || item.content, query), query);
+        const dateText = item.date ? new Date(item.date + 'T12:00:00').toLocaleDateString('nb-NO', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+        return '<a class="search-result" href="' + item.url + '">' +
+          '<span class="search-result-type">' + escapeHtml(item.type || 'Side') + '</span>' +
+          '<strong>' + highlightMatch(item.title, query) + '</strong>' +
+          (summary ? '<p>' + summary + '</p>' : '') +
+          (item.category ? '<small>' + escapeHtml(item.category) + (dateText ? ' · ' + escapeHtml(dateText) : '') + '</small>' : (dateText ? '<small>' + escapeHtml(dateText) + '</small>' : '')) +
+          '</a>';
+      }).join('');
+    }
+
+    function runSearch(rawQuery) {
+      const query = rawQuery.trim();
+      queryInput.value = query;
+
+      if (!query) {
+        statusElement.textContent = 'Skriv inn minst ett søkeord.';
+        resultsContainer.innerHTML = '';
+        return;
+      }
+
+      const normalizedQuery = normalize(query);
+      const matches = index.filter(function (item) {
+        const haystack = normalize([item.title, item.summary, item.content, item.category, item.type].join(' '));
+        return haystack.includes(normalizedQuery);
+      });
+
+      renderMatches(matches, query);
+    }
+
+    async function loadIndex() {
+      try {
+        const response = await fetch(searchUrl, { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error('Kunne ikke laste søkeindeks.');
+        }
+        index = await response.json();
+
+        const params = new URLSearchParams(window.location.search);
+        const initialQuery = (params.get('q') || '').trim();
+        runSearch(initialQuery);
+      } catch (error) {
+        statusElement.textContent = 'Søketjenesten kunne ikke laste. Prøv igjen senere.';
+        resultsContainer.innerHTML = '<div class="search-empty">Det oppstod en feil under lasting av søkeindeksen.</div>';
+      }
+    }
+
+    searchForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const nextQuery = queryInput.value.trim();
+      const url = new URL(window.location.href);
+      if (nextQuery) {
+        url.searchParams.set('q', nextQuery);
+      } else {
+        url.searchParams.delete('q');
+      }
+      history.replaceState({}, '', url);
+      runSearch(nextQuery);
+    });
+
+    loadIndex();
+  })();
+</script>
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/kampen-hageby-2-test/" aria-label="Sameiet Kampen Hageby 2 – hjem"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M3 16 10 9l6 6 6-6 7 7M6 14v11h20V14M12 25v-7h8v7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="brand-name">Kampen Hageby 2<small>Sameiet · Oslo</small></span></a>
+        <p class="footer-tagline">Et godt sted å bo. Et fint sted å høre til.</p>
+      </div>
+      <div><p class="footer-heading">Utforsk</p><ul class="footer-links"><li><a href="/kampen-hageby-2-test/#siste-nytt">Siste nytt</a></li><li><a href="/kampen-hageby-2-test/retningslinjer.html">Retningslinjer for bebyggelsen</a></li><li><a href="/kampen-hageby-2-test/dokumenter.html">Dokumenter fra sameiet</a></li><li><a href="/kampen-hageby-2-test/leverandorer.html">Leverandører og tjenester</a></li></ul></div>
+      <div><p class="footer-heading">Til beboerne</p><p class="footer-help">Informasjon og ressurser samles her. Kontaktinformasjon kan legges til når styret ønsker å publisere den.</p></div>
+    </div>
+    <div class="footer-bottom"><p>© Sameiet Kampen Hageby 2</p><p>Laget for nabolaget, med omtanke.</p></div>
+  </div>
+</footer>
+
+</body>
+</html>

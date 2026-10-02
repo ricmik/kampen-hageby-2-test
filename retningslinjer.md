@@ -9,13 +9,13 @@ Retningslinjene skal bidra til en felles forståelse av bebyggelsens utforming o
 
 ## Finn raskt
 
-- [Før du setter i gang](#before-starting)
-- [Dører og vinduer](#doors-and-windows)
-- [Markiser og varmepumpe](#awnings-and-heat-pump)
-- [Brannstige, utelamper og farger](#fire-escape-lights-and-colors)
-- [Branndør i garasjeanlegget](#garage-fire-door)
+- [Før du setter i gang](#før-du-setter-i-gang)
+- [Dører og vinduer](#dører-og-vinduer)
+- [Markiser og varmepumpe](#markiser-og-varmepumpe)
+- [Brannstige, utelamper og farger](#brannstige-utelamper-og-farger)
+- [Branndør i garasjeanlegget](#branndør-i-garasjeanlegget)
 
-## Før du setter i gang {#before-starting}
+## Før du setter i gang
 
 Vedtektene gir styret adgang til å fastsette bestemmelser om blant annet farger, typer markiser og andre forhold som påvirker bebyggelsens utseende. Seksjonseier har ansvar for vedlikehold og utskifting av egen ytterdør. Retningslinjedokumentet legger til grunn at ytterdører og vinduer kan skiftes til tilsvarende varianter.
 
@@ -23,7 +23,7 @@ Andre endringer på fasaden krever godkjenning fra styret, som kan avslå søkna
 
 Målene for enkelte vinduer og dører mangler fortsatt eller må kontrollmåles. Opplysningene her erstatter ikke styrets behandling eller offentlige krav.
 
-## Dører og vinduer {#doors-and-windows}
+## Dører og vinduer
 
 ### Ytterdør
 
@@ -47,7 +47,7 @@ Hvit dør med stort vindusfelt og et lite panel, 89 × 209 cm ifølge tegningen,
 - **Loftsetasje:** Hvit enkeltdør med vertikale trespiler. Mål fastsettes etter oppmåling i nr. 37.
 - **Endevegg:** Hvit dobbeltdør med vertikale trespiler. Mål fastsettes etter oppmåling i nr. 30.
 
-## Markiser og varmepumpe {#awnings-and-heat-pump}
+## Markiser og varmepumpe
 
 ### Markiser
 
@@ -57,7 +57,7 @@ Markiser skal være stripete i husets farge og hvitt, eller i husets farge og ly
 
 Varmepumpemodellen skal ha lavt støynivå. Pumpen bør plasseres minst en halv meter over bakken og med god avstand til soveromsvinduer og terrassedører. Følg monteringsanvisningen og anbefalingene om avstand til naboer og soveromsvinduer. Det anbefales minst ti meter til naboens soveromsvindu. Dersom pumpen monteres på vegg, skal den skjules bak en pen trekasse malt i husets farge. Varmepumpe krever søknad til styret.
 
-## Brannstige, utelamper og farger {#fire-escape-lights-and-colors}
+## Brannstige, utelamper og farger
 
 ### Brannstige
 
@@ -80,6 +80,6 @@ Fargene ble harmonisert med fargene brukt i KH1 ved maling i 2022/23:
 | Rekkverk ved inngangsparti | Beises mørkebrunt |
 | Gjerder | Males hvite |
 
-## Branndør i garasjeanlegget {#garage-fire-door}
+## Branndør i garasjeanlegget
 
 Branndøren skal være klassisk rød, fargetype Y30, og CE-merket.
